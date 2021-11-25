@@ -37,6 +37,7 @@ class UntitledTestCase(unittest.TestCase):
         username.send_keys('secret')
 
 
+
         wd.find_element_by_xpath("//input[@value='Login']").click()
         # open groups
         wd.find_element_by_name("new").click()
