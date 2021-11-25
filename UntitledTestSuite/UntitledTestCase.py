@@ -77,10 +77,10 @@ class UntitledTestCase(unittest.TestCase):
 
     def login(self, wd, username, password):
         # login
-        username = wd.find_element_by_name('user')
-        username.send_keys(username)
-        username = wd.find_element_by_name('pass')
-        username.send_keys(password)
+        user = wd.find_element_by_name('user')
+        user.send_keys(username)
+        passwd = wd.find_element_by_name('pass')
+        passwd.send_keys(password)
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
     def open_home_page(self, wd):
