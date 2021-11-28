@@ -29,8 +29,8 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_link_text("Logout").click()
 
     def create_new_contact(self, driver, namefirstname, namemiddlename, namelastname, namenickname, nametitle,
-                           namecompany, nameaddress, namehome, namemobile, namework, namefax, nameemail2, nameemail,
-                           nameemail3, namehomepage, daynumber, month, yearnumber, adaynum, amonthnum, ayearnum,
+                           namecompany, nameaddress, namehome, namemobile, namework, namefax, nameemail, nameemail2,
+                           nameemail3, namehomepage, daynumber, monthnumber, yearnumber, adaynum, amonthnum, ayearnum,
                            adress2name, numphone2, namenotes="ss"):
         # create new contact
         driver.find_element_by_name("firstname").click()
@@ -68,7 +68,7 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_name("fax").send_keys(namefax)
         driver.find_element_by_name("email").click()
         driver.find_element_by_name("email").clear()
-        driver.find_element_by_name("email").send_keys(nameemail2)
+        driver.find_element_by_name("email").send_keys(nameemail)
         driver.find_element_by_name("email2").click()
         driver.find_element_by_name("email2").clear()
         driver.find_element_by_name("email2").send_keys(nameemail2)
