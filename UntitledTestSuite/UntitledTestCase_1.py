@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
-
+from group2 import Group
 class UntitledTestCase(unittest.TestCase):
     def setUp(self):
         self.driver =webdriver.Chrome(executable_path=r'c:\Users\User\AppData\Local\Programs\ChromeDriver\chromedriver.exe')
@@ -19,90 +19,87 @@ class UntitledTestCase(unittest.TestCase):
         driver = self.driver
         self.open_home_page(driver)
         self.login(driver, username="admin", password="secret")
-        self.create_new_contact(driver, "Jkz", "djdj", "hhh", "kjlkjjkj", "h;hh", "kjk", "lhkhj", "lnn", "nb", "sss",
+        self.create_new_contact(driver, Group("Jkz", "djdj", "hhh", "kjlkjjkj", "h;hh", "kjk", "lhkhj", "lnn", "nb", "sss",
                                 "ssss", "fff", "ff", "fff", "ff", "6", "January", "2020", "4", "March", "2021", "dsss",
-                                "ss", "ss")
+                                "ss", "ss"))
         self.logout(driver)
 
     def logout(self, driver):
         # Logout
         driver.find_element_by_link_text("Logout").click()
 
-    def create_new_contact(self, driver, namefirstname, namemiddlename, namelastname, namenickname, nametitle,
-                           namecompany, nameaddress, namehome, namemobile, namework, namefax, nameemail, nameemail2,
-                           nameemail3, namehomepage, daynumber, monthnumber, yearnumber, adaynum, amonthnum, ayearnum,
-                           adress2name, numphone2, namenotes):
+    def create_new_contact(self, driver, group2):
         # create new contact
         driver.find_element_by_name("firstname").click()
         driver.find_element_by_name("firstname").clear()
-        driver.find_element_by_name("firstname").send_keys(namefirstname)
+        driver.find_element_by_name("firstname").send_keys(group2.namefirstname)
         driver.find_element_by_name("middlename").click()
         driver.find_element_by_name("middlename").clear()
-        driver.find_element_by_name("middlename").send_keys(namemiddlename)
+        driver.find_element_by_name("middlename").send_keys(group2.namemiddlename)
         driver.find_element_by_name("lastname").click()
         driver.find_element_by_name("lastname").clear()
-        driver.find_element_by_name("lastname").send_keys(namelastname)
+        driver.find_element_by_name("lastname").send_keys(group2.namelastname)
         driver.find_element_by_name("nickname").click()
         driver.find_element_by_name("nickname").clear()
-        driver.find_element_by_name("nickname").send_keys(namenickname)
+        driver.find_element_by_name("nickname").send_keys(group2.namenickname)
         driver.find_element_by_name("title").click()
         driver.find_element_by_name("title").clear()
-        driver.find_element_by_name("title").send_keys(nametitle)
+        driver.find_element_by_name("title").send_keys(group2.nametitle)
         driver.find_element_by_name("company").click()
         driver.find_element_by_name("company").clear()
-        driver.find_element_by_name("company").send_keys(namecompany)
+        driver.find_element_by_name("company").send_keys(group2.namecompany)
         driver.find_element_by_name("address").click()
         driver.find_element_by_name("address").clear()
-        driver.find_element_by_name("address").send_keys(nameaddress)
+        driver.find_element_by_name("address").send_keys(group2.nameaddress)
         driver.find_element_by_name("home").click()
         driver.find_element_by_name("home").clear()
-        driver.find_element_by_name("home").send_keys(namehome)
+        driver.find_element_by_name("home").send_keys(group2.namehome)
         driver.find_element_by_name("mobile").click()
         driver.find_element_by_name("mobile").clear()
-        driver.find_element_by_name("mobile").send_keys(namemobile)
+        driver.find_element_by_name("mobile").send_keys(group2.namemobile)
         driver.find_element_by_name("work").click()
         driver.find_element_by_name("work").clear()
-        driver.find_element_by_name("work").send_keys(namework)
+        driver.find_element_by_name("work").send_keys(group2.namework)
         driver.find_element_by_name("fax").click()
         driver.find_element_by_name("fax").clear()
-        driver.find_element_by_name("fax").send_keys(namefax)
+        driver.find_element_by_name("fax").send_keys(group2.namefax)
         driver.find_element_by_name("email").click()
         driver.find_element_by_name("email").clear()
-        driver.find_element_by_name("email").send_keys(nameemail)
+        driver.find_element_by_name("email").send_keys(group2.nameemail)
         driver.find_element_by_name("email2").click()
         driver.find_element_by_name("email2").clear()
-        driver.find_element_by_name("email2").send_keys(nameemail2)
+        driver.find_element_by_name("email2").send_keys(group2.nameemail2)
         driver.find_element_by_name("email3").click()
         driver.find_element_by_name("email3").clear()
-        driver.find_element_by_name("email3").send_keys(nameemail3)
+        driver.find_element_by_name("email3").send_keys(group2.nameemail3)
         driver.find_element_by_name("homepage").click()
         driver.find_element_by_name("homepage").clear()
-        driver.find_element_by_name("homepage").send_keys(namehomepage)
+        driver.find_element_by_name("homepage").send_keys(group2.namehomepage)
         driver.find_element_by_name("bday").click()
-        Select(driver.find_element_by_name("bday")).select_by_visible_text(daynumber)
+        Select(driver.find_element_by_name("bday")).select_by_visible_text(group2.daynumber)
         driver.find_element_by_name("bmonth").click()
-        Select(driver.find_element_by_name("bmonth")).select_by_visible_text(monthnumber)
+        Select(driver.find_element_by_name("bmonth")).select_by_visible_text(group2.monthnumber)
         driver.find_element_by_name("byear").click()
         driver.find_element_by_name("byear").clear()
-        driver.find_element_by_name("byear").send_keys(yearnumber)
+        driver.find_element_by_name("byear").send_keys(group2.yearnumber)
         driver.find_element_by_name("aday").click()
-        Select(driver.find_element_by_name("aday")).select_by_visible_text(adaynum)
+        Select(driver.find_element_by_name("aday")).select_by_visible_text(group2.adaynum)
         driver.find_element_by_name("amonth").click()
-        Select(driver.find_element_by_name("amonth")).select_by_visible_text(amonthnum)
+        Select(driver.find_element_by_name("amonth")).select_by_visible_text(group2.amonthnum)
         driver.find_element_by_name("ayear").click()
         driver.find_element_by_name("ayear").clear()
-        driver.find_element_by_name("ayear").send_keys(ayearnum)
+        driver.find_element_by_name("ayear").send_keys(group2.ayearnum)
         driver.find_element_by_name("new_group").click()
         Select(driver.find_element_by_name("new_group")).select_by_visible_text("sldkfsdlfjnadsflkvdhfhf")
         driver.find_element_by_name("address2").click()
         driver.find_element_by_name("address2").clear()
-        driver.find_element_by_name("address2").send_keys(adress2name)
+        driver.find_element_by_name("address2").send_keys(group2.adress2name)
         driver.find_element_by_name("phone2").click()
         driver.find_element_by_name("phone2").clear()
-        driver.find_element_by_name("phone2").send_keys(numphone2)
+        driver.find_element_by_name("phone2").send_keys(group2.numphone2)
         driver.find_element_by_name("notes").click()
         driver.find_element_by_name("notes").clear()
-        driver.find_element_by_name("notes").send_keys(namenotes)
+        driver.find_element_by_name("notes").send_keys(group2.namenotes)
         driver.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
     def login(self, driver, username, password):
