@@ -21,7 +21,7 @@ class UntitledTestCase(unittest.TestCase):
         self.login(driver, username="admin", password="secret")
         self.create_new_contact(driver, "Jkz", "djdj", "hhh", "kjlkjjkj", "h;hh", "kjk", "lhkhj", "lnn", "nb", "sss",
                                 "ssss", "fff", "ff", "fff", "ff", "6", "January", "2020", "4", "March", "2021", "dsss",
-                                "ss")
+                                "ss", "ss")
         self.logout(driver)
 
     def logout(self, driver):
@@ -31,7 +31,7 @@ class UntitledTestCase(unittest.TestCase):
     def create_new_contact(self, driver, namefirstname, namemiddlename, namelastname, namenickname, nametitle,
                            namecompany, nameaddress, namehome, namemobile, namework, namefax, nameemail, nameemail2,
                            nameemail3, namehomepage, daynumber, monthnumber, yearnumber, adaynum, amonthnum, ayearnum,
-                           adress2name, numphone2, namenotes="ss"):
+                           adress2name, numphone2, namenotes):
         # create new contact
         driver.find_element_by_name("firstname").click()
         driver.find_element_by_name("firstname").clear()
